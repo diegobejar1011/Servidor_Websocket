@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import { createServer } from "node:http";
 import { Server, Socket } from "socket.io";
+import { dataHandler } from "./src/handlers/data_handler";
 
 const app = express();
 
@@ -29,4 +30,6 @@ httpServer.listen(5000, () => {
 
 io.on("connection", (socket: Socket) => {
   console.log("Cliente conectado");
+
+  dataHandler(io, socket);
 });
