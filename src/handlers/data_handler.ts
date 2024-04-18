@@ -5,6 +5,7 @@ export function dataHandler(io: Server, socket: Socket) {
   const sendMessage = (payload: any) => {
     try {
       console.log(payload);
+      io.emit((Events.SEND_MESSAGE, payload));
     } catch (error: any) {
       throw new Error(error.message);
     }
