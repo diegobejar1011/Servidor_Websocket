@@ -29,7 +29,6 @@ httpServer.listen(5000, () => {
 });
 
 io.use((socket, next)=> {
-    console.log(socket.handshake);
     next();
 })
 
